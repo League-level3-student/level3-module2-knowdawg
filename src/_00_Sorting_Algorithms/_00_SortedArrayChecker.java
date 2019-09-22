@@ -61,7 +61,7 @@ public class _00_SortedArrayChecker {
 	//   (You can compare characters just like integers)
 	public static boolean charArraySorted(char[] charArrayPassedIn) {
 		for (int i = 0; i < charArrayPassedIn.length; i++) {
-			if(charArrayPassedIn[i] < charArrayPassedIn[i+1 /* the next index */]) {
+			if(charArrayPassedIn[i] < charArrayPassedIn[i+1]) {
 				//good job, sorted so far
 			} else {
 				//Bad job, not sorted, returning false
