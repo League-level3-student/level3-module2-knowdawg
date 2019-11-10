@@ -80,9 +80,8 @@ public class _00_MoreAndMoreTests {
 	  }
 
 	boolean isCube(int x) {
-		double normX = (int) x^(1/3);
-		double comlX = x^(1/3);
-		System.out.println(normX + " " + comlX);
+		double normX = (int) Math.cbrt(x);
+		double comlX = Math.cbrt(x);
 		if(normX == comlX) {
 			return true;
 		}
