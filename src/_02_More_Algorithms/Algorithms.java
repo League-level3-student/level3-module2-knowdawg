@@ -1,6 +1,9 @@
 package _02_More_Algorithms;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import _00_Sorting_Algorithms.SortingVisualizer;
 
 public class Algorithms {
 	public static int findBrokenEgg(List<String> eggs) {
@@ -43,22 +46,45 @@ public class Algorithms {
 		return longest;
 	}
 
-	public static Object containsSOS(List<String> message) {
-		String SOS = "...---...";
-		int counter = 0;
-		for (int i = 0; i < message.size(); i++) {
-			if(SOS.charAt(counter) == message.get(1).charAt(i)) {
-				counter += 1;
-				if(counter == 9) {
-					System.out.println("YEET");
+	public static boolean containsSOS(List<String> message) {
+			String SOS = "... --- ...";
+			for (int i = 0; i < message.size(); i++) {
+				if (SOS.equals(message.get(i))) {
 					return true;
 				}
-			} else {
-				counter = 0;
 			}
+			return false;
 		}
-		return false;
+
+	
+	public static List<Double> sortScores(List<Double> results) {
+			boolean sorted = false;
+			while (sorted == false) {
+				sorted = true;
+				for (int i = 0; i < results.size(); i++) {
+					if (i + 1 < results.size()) {
+						if (results.get(i) > results.get(i + 1)){
+							double firstSwapInt = results.get(i);
+							double secoundSwapInt = results.get(i + 1);
+							System.out.println(results);
+							results.remove(i+1);
+							System.out.println(results);
+							results.add(i + 1, firstSwapInt);
+							System.out.println(results);
+							results.remove(i);
+							System.out.println(results);
+							results.add(i, secoundSwapInt);
+							System.out.println(results);
+							sorted = false;
+						}
+					}
+				}
+			}
+			return results;
+			
+		
 	}
+	
 }
 
 
