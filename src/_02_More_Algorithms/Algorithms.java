@@ -9,17 +9,17 @@ public class Algorithms {
 	public static int findBrokenEgg(List<String> eggs) {
 		int crackedEggs = 0;
 		for (int i = 0; i < eggs.size(); i++) {
-			if(eggs.get(i).equalsIgnoreCase("cracked")) {
+			if (eggs.get(i).equalsIgnoreCase("cracked")) {
 				crackedEggs += 1;
 			}
 		}
-		return(crackedEggs);
+		return (crackedEggs);
 	}
 
 	public static int countPearls(List<Boolean> oysters) {
 		int perls = 0;
 		for (int i = 0; i < oysters.size(); i++) {
-			if(oysters.get(i).equals(true)) {
+			if (oysters.get(i).equals(true)) {
 				perls += 1;
 			}
 		}
@@ -29,7 +29,7 @@ public class Algorithms {
 	public static double findTallest(List<Double> peeps) {
 		double largest = 0;
 		for (int i = 0; i < peeps.size(); i++) {
-			if(peeps.get(i) > largest) {
+			if (peeps.get(i) > largest) {
 				largest = peeps.get(i);
 			}
 		}
@@ -39,7 +39,7 @@ public class Algorithms {
 	public static String findLongestWord(List<String> words) {
 		String longest = "x";
 		for (int i = 0; i < words.size(); i++) {
-			if(words.get(i).length() > longest.length()) {
+			if (words.get(i).length() > longest.length()) {
 				longest = words.get(i);
 			}
 		}
@@ -47,55 +47,37 @@ public class Algorithms {
 	}
 
 	public static boolean containsSOS(List<String> message) {
-			String SOS = "... --- ...";
-			for (int i = 0; i < message.size(); i++) {
-				if (SOS.equals(message.get(i))) {
-					return true;
-				}
+		String SOS = "... --- ...";
+		for (int i = 0; i < message.size(); i++) {
+			if (SOS.equals(message.get(i))) {
+				return true;
 			}
-			return false;
 		}
+		return false;
+	}
 
-	
 	public static List<Double> sortScores(List<Double> results) {
-			boolean sorted = false;
-			while (sorted == false) {
-				sorted = true;
-				for (int i = 0; i < results.size(); i++) {
-					if (i + 1 < results.size()) {
-						if (results.get(i) > results.get(i + 1)){
-							double firstSwapInt = results.get(i);
-							double secoundSwapInt = results.get(i + 1);
-							System.out.println(results);
-							results.remove(i+1);
-							System.out.println(results);
-							results.add(i + 1, firstSwapInt);
-							System.out.println(results);
-							results.remove(i);
-							System.out.println(results);
-							results.add(i, secoundSwapInt);
-							System.out.println(results);
-							sorted = false;
-						}
+		List<Double> sorted = new ArrayList();
+		for (int i = 0; i < results.size(); i++) {
+			if (sorted.size() == 0) {
+				sorted.add(results.get(i));
+			} else {
+				int RP = sorted.size();
+
+				for (int j = 0; j < RP; j++) {
+					if (results.get(i) < sorted.get(j)) {
+						sorted.add(j, results.get(i));
+						j = RP;
+					} else if(j == RP - 1) {
+						sorted.add(j+1, results.get(i));
 					}
 				}
+
 			}
-			return results;
-			
-		
+		}
+		results = sorted;
+		System.out.println(results);
+		return results;
+
 	}
-	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
