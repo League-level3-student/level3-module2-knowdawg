@@ -68,16 +68,62 @@ public class Algorithms {
 					if (results.get(i) < sorted.get(j)) {
 						sorted.add(j, results.get(i));
 						j = RP;
-					} else if(j == RP - 1) {
-						sorted.add(j+1, results.get(i));
+					} else if (j == RP - 1) {
+						sorted.add(j + 1, results.get(i));
 					}
 				}
 
 			}
 		}
 		results = sorted;
-		System.out.println(results);
 		return results;
 
+	}
+
+	public static List<String> sortDNA(List<String> unsortedSequences) {
+		List<String> sorted = new ArrayList();
+
+		for (int i = 0; i < unsortedSequences.size(); i++) {
+			if (sorted.size() == 0) {
+				sorted.add(unsortedSequences.get(i));
+			} else {
+				int RP = sorted.size();
+
+				for (int j = 0; j < RP; j++) {
+					if (unsortedSequences.get(i).length() < sorted.get(j).length()) {
+						sorted.add(j, unsortedSequences.get(i));
+						j = RP;
+					} else if (j == RP - 1) {
+						sorted.add(j + 1, unsortedSequences.get(i));
+					}
+				}
+			}
+		}
+		unsortedSequences = sorted;
+		return unsortedSequences;
+	}
+
+	public static List<String> sortWords(List<String> words) {
+		List<String> sorted = new ArrayList();
+
+		for (int i = 0; i < words.size(); i++) {
+			if (sorted.size() == 0) {
+				sorted.add(words.get(i));
+			} else {
+				int RP = sorted.size();
+
+				for (int j = 0; j < RP; j++) {
+					if (words.get(i).compareTo(sorted.get(j)) < 0) {
+						sorted.add(j, words.get(i));
+						j = RP;
+					} else if (j == RP - 1) {
+						sorted.add(j + 1, words.get(i));
+					}
+				}
+			}
+		}
+		words = sorted;
+		System.out.println(words);
+		return words;
 	}
 }
